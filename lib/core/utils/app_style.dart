@@ -36,6 +36,13 @@ abstract class AppStyle {
     fontWeight: FontWeight.w400,
   );
 
+  static const TextStyle styleSemiBold14 = TextStyle(
+    color: Colors.black,
+    fontSize: 14,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
+  );
+
   static const TextStyle styleSemiBold18 = TextStyle(
     color: Colors.black,
     fontSize: 18,
