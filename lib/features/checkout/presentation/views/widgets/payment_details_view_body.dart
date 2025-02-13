@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:checkout_app/features/checkout/presentation/views/thank_you_view.dart';
 import 'package:checkout_app/features/checkout/presentation/views/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -43,6 +44,12 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     log('Payment Successful');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ThankYouView(),
+                      ),
+                    );
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;

@@ -14,6 +14,10 @@ class Assets {
   /// assets/images/backgound_card.png
   static const String imagesBackgoundCard = "assets/images/backgound_card.png";
 
+  /// Assets for imagesBarCode
+  /// assets/images/bar_code.svg
+  static const String imagesBarCode = "assets/images/bar_code.svg";
+
   /// Assets for imagesBasket
   /// assets/images/basket.png
   static const String imagesBasket = "assets/images/basket.png";
@@ -21,6 +25,10 @@ class Assets {
   /// Assets for imagesCard
   /// assets/images/card.svg
   static const String imagesCard = "assets/images/card.svg";
+
+  /// Assets for imagesCheckIcon
+  /// assets/images/check_icon.svg
+  static const String imagesCheckIcon = "assets/images/check_icon.svg";
 
   /// Assets for imagesMastercardLogo
   /// assets/images/mastercard_logo.svg
