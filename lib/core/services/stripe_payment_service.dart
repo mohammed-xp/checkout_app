@@ -4,8 +4,10 @@ import 'package:checkout_app/features/checkout/data/models/payment_intent_input_
 import 'package:checkout_app/features/checkout/data/models/payment_intent_model/payment_intent_model.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
-class PaymentStripeService {
-  final ApiService _apiService = ApiService();
+class StripePaymentService {
+  final ApiService _apiService;
+
+  StripePaymentService(this._apiService);
 
   Future<PaymentIntentModel> createPaymentIntent(
       PaymentIntentInputModel paymentIntentInputModel) async {
