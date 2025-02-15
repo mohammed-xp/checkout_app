@@ -8,15 +8,16 @@ class ApiService {
     required body,
     required String token,
     String? contentType,
+    Map<String, String>? headers,
   }) async {
+    Map<String, String> apiRequestHeaders = {'Authorization': 'Bearer $token'};
+    if (headers != null) apiRequestHeaders.addEntries(headers.entries);
     var response = await _dio.post(
       url,
       data: body,
       options: Options(
         contentType: contentType,
-        headers: {
-          'Authorization': 'Bearer $token',
-        },
+        headers: apiRequestHeaders,
       ),
     );
 

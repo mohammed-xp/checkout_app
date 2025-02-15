@@ -1,7 +1,13 @@
+import 'package:checkout_app/core/api_keys.dart';
+import 'package:checkout_app/core/services/get_it_service.dart';
 import 'package:checkout_app/features/checkout/presentation/views/my_cart_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey = ApiKeys.stripePublishableKey;
+  setupGetIt();
   runApp(const CheckoutApp());
 }
 

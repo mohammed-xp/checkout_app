@@ -6,10 +6,12 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
+    this.isLoading = false,
   });
 
   final String title;
   final Function() onPressed;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +26,14 @@ class CustomButton extends StatelessWidget {
           ),
           minimumSize: const Size(350, 73),
         ),
-        child: Text(
-          title,
-          style: AppStyle.styleMedium22,
-        ),
+        child: isLoading
+            ? const CircularProgressIndicator(
+                color: Colors.white,
+              )
+            : Text(
+                title,
+                style: AppStyle.styleMedium22,
+              ),
       ),
     );
   }

@@ -1,8 +1,11 @@
+import 'package:checkout_app/core/services/get_it_service.dart';
 import 'package:checkout_app/core/utils/app_images.dart';
-import 'package:checkout_app/features/checkout/presentation/views/payment_details_view.dart';
+import 'package:checkout_app/features/checkout/data/repos/checkout_repo.dart';
+import 'package:checkout_app/features/checkout/presentation/manager/cubit/stripe_payment_cubit.dart';
 import 'package:checkout_app/features/checkout/presentation/views/widgets/custom_button.dart';
-import 'package:checkout_app/features/checkout/presentation/views/widgets/payment_methods.dart';
+import 'package:checkout_app/features/checkout/presentation/views/widgets/payment_methods_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'custom_divider.dart';
 import 'order_info_item.dart';
@@ -50,44 +53,16 @@ class MyCartViewBody extends StatelessWidget {
 
               showModalBottomSheet(
                 context: context,
-                builder: (context) => const PaymentMethodsBottomSheet(),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class PaymentMethodsBottomSheet extends StatelessWidget {
-  const PaymentMethodsBottomSheet({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const SizedBox(
-            height: 16,
-          ),
-          const PaymentMethods(),
-          const SizedBox(height: 32),
-          CustomButton(
-            title: 'Continue',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const PaymentDetailsView(),
+                builder: (context) => BlocProvider(
+                  create: (context) =>
+                      StripePaymentCubit(getIt.get<CheckoutRepo>()),
+                  child: const PaymentMethodsBottomSheet(),
                 ),
               );
             },
+          ),
+          const SizedBox(
+            height: 16,
           ),
         ],
       ),
